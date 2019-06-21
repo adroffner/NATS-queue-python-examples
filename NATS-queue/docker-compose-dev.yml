@@ -1,0 +1,20 @@
+# Docker: NATS Queues
+# https://nats-io.github.io/docs/nats_server/installation.html#installing-via-docker
+# ==================================================================================
+version: '2'
+services:
+  web:
+    image: nats:latest
+    command: -D --user "your" --pass "mom"
+    ports:
+      - "4222:4222"
+    environment:
+      - "SERVER_TIER=dev"
+    logging:
+      driver: "json-file"
+      options:
+        labels: "elk_index_value"
+        max-size: "50m"
+        max-file: "20"
+    labels:
+      elk_index_value: "NATS-Queue"

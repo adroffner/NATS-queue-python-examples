@@ -11,10 +11,12 @@ from nats.aio.errors import (
     ErrNoServers
 )
 
-NATS_USER = 'your'
-NATS_PASS = 'mom'
+# NATS_USER = 'your'
+# NATS_PASS = 'mom'
+NATS_USER = 'admin'
+NATS_PASS = 'hello'
 
-PUB_SUBJECT = 'updates'
+PUB_SUBJECT = 'com.example.updates'
 
 
 async def consumer_action():

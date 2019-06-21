@@ -11,10 +11,10 @@ from nats.aio.errors import (
     ErrNoServers
 )
 
-# NATS_USER = 'your'
-# NATS_PASS = 'mom'
-NATS_USER = 'admin'
-NATS_PASS = 'hello'
+NATS_USER = 'your'
+NATS_PASS = 'mom'
+# NATS_USER = 'admin'
+# NATS_PASS = 'hello'
 
 PUB_SUBJECT = 'com.example.updates'
 
@@ -23,7 +23,10 @@ async def consumer_action():
     nc = NATS()
 
     async def error_cb(e):
-        print(traceback.format_exc())
+        if not isinstance(e, asyncio.InvalidStateError):
+            print(traceback.format_exc())
+        else:
+            print("Probably waiting for messages and not done...")
 
     await nc.connect(servers=["nats://127.0.0.1:4222"],
                      user=NATS_USER, password=NATS_PASS,

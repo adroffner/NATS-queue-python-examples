@@ -11,10 +11,10 @@ from nats.aio.errors import (
     ErrNoServers
 )
 
-# NATS_USER = 'the'
-# NATS_PASS = 'fuzz'
-NATS_USER = 'admin'
-NATS_PASS = 'hello'
+NATS_USER = 'the'
+NATS_PASS = 'fuzz'
+# NATS_USER = 'admin'
+# NATS_PASS = 'hello'
 
 PUB_SUBJECT = 'com.example.updates'
 
